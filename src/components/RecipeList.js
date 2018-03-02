@@ -4,19 +4,15 @@ const RecipeList = (props) => (
   <div style={props.style}>
     <h2>Recipes</h2>
     <ul>
-      <li>
-        <span>Smoked Brisket</span>
-        <span>Meat</span>
-      </li>
-      <li>
-        <span>Creamy Kabocha Risotto</span>
-        <span>Rice</span>
-      </li>
-      <li>
-        <span>Thin Mint Ice Cream</span>
-        <span>Dessert</span>
-      </li>
-
+      {props.recipes.map(recipe => (
+        <li
+          key={recipe.id}
+          onClick={() => props.onClick(recipe.id)}
+        >
+          <span>{recipe.name}</span>
+          <span>{recipe.category}</span>
+        </li>
+      ))}
     </ul>
   </div>
 );
