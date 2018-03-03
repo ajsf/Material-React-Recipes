@@ -1,9 +1,11 @@
 import React from 'react';
+import AppBar from 'material-ui/AppBar';
 
 const Header = () => (
-  <header className="px4">
-  <h1 className="h1">🍽 MyRecipes</h1>
-  </header>
+  <AppBar
+    title="My Recipes 🍽"
+    iconClassNameRight="muidocs-icon-navigation-expand-more"
+  />
 );
 
 export default Header;
