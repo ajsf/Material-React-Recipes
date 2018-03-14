@@ -7,7 +7,15 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "./node_modules/.bin/webpack-dev-server --mode development --host 0.0.0.0",
-    "lint": "./node_modules/.bin/eslint ./src"
+    "lint": "./node_modules/.bin/eslint ./src",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn lint",
+      "prettier --write",
+      "git add"
+    ]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -23,6 +31,8 @@
     "eslint-plugin-react": "^7.7.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.0.4",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
     "prettier": "^1.11.1",
     "style-loader": "^0.20.2",
     "webpack": "^4.0.1",
