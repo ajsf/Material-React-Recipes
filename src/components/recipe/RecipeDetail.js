@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const RecipeDetail = (props) => {
@@ -13,18 +14,20 @@ const RecipeDetail = (props) => {
     );
   }
   return (
-    <MuiThemeProvider
+    <div
       style={props.style}
       className={classNames('p2 bg-white', props.className)}
-      >
+    >
       <h2 className="h2">{props.recipe.name}</h2>
       <img
+        alt={props.recipe.name}
         className="fit"
-        src={props.recipe.image} />
-      <MuiThemeProvider>
+        src={props.recipe.image}
+      />
+      <div>
         <span>{props.recipe.category}</span>
         <span>{props.recipe.calories}</span>
-      </MuiThemeProvider>
+      </div>
       <h3>Ingredients</h3>
       <ul>
         {props.recipe.ingredients.map(ingredient => (
@@ -41,7 +44,14 @@ const RecipeDetail = (props) => {
           </li>
         ))}
       </ol>
-    </MuiThemeProvider>
+    </div>
   );
-}
+};
+
+RecipeDetail.propTypes = {
+  recipe: PropTypes.object.isRequired,
+  style: PropTypes.object,
+  className: PropTypes.string,
+};
+
 export default RecipeDetail;

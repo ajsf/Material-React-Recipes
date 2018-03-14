@@ -8,29 +8,22 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      recipes: []
+      recipes: [],
     };
   }
 
   componentDidMount() {
     fetch(`${API_URL}/v1/recipes`)
       .then(res => res.json())
-      .then(recipes => {
-        Promise.all(recipes
+      .then((recipesList) => {
+        Promise.all(recipesList
           .map(recipe => recipe.id)
           .map(id => `${API_URL}/v1/recipes/${id}`)
-          .map(url => fetch(url).then(resp => resp.json()))
-        ).then(recipes => {
-          this.setState({ recipes })
-        })
-      })
-  }
-
-  onRecipeClick = (id) => {
-    fetch(`${API_URL}/v1/recipes/${id}`)
-      .then(res => res.json())
-      .then(currentRecipe => {
-        this.setState({ currentRecipe });
+          .map(url => fetch(url)
+            .then(resp => resp.json())))
+          .then((recipes) => {
+            this.setState({ recipes });
+          });
       });
   }
 
