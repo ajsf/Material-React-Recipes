@@ -15,7 +15,7 @@ function Body({ recipes }) {
   const split = recipes.length / 2;
   return (
     <div style={styles.root}>
-      <Grid container spacing={24} justify="center" >
+      <Grid container spacing={24} justify="center">
         <Grid item>
           <RecipeCardList recipes={recipes.slice(0, split)} />
         </Grid>
@@ -23,7 +23,7 @@ function Body({ recipes }) {
           <RecipeCardList recipes={recipes.slice(split, recipes.length)} />
         </Grid>
       </Grid>
-    </div >
+    </div>
   );
 }
 

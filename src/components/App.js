@@ -15,15 +15,15 @@ class App extends React.Component {
   componentDidMount() {
     fetch(`${API_URL}/v1/recipes`)
       .then(res => res.json())
-      .then((recipesList) => {
-        Promise.all(recipesList
-          .map(recipe => recipe.id)
-          .map(id => `${API_URL}/v1/recipes/${id}`)
-          .map(url => fetch(url)
-            .then(resp => resp.json())))
-          .then((recipes) => {
-            this.setState({ recipes });
-          });
+      .then(recipesList => {
+        Promise.all(
+          recipesList
+            .map(recipe => recipe.id)
+            .map(id => `${API_URL}/v1/recipes/${id}`)
+            .map(url => fetch(url).then(resp => resp.json())),
+        ).then(recipes => {
+          this.setState({ recipes });
+        });
       });
   }
 

@@ -46,8 +46,7 @@ class RecipeCard extends React.Component {
 
   render() {
     return (
-      <Card style={styles.card} raised >
-
+      <Card style={styles.card} raised>
         <CardMedia
           style={styles.media}
           image={this.props.recipe.image}
@@ -55,19 +54,16 @@ class RecipeCard extends React.Component {
         />
 
         <CardContent>
-          <Typography variant="headline">
-            {this.props.recipe.name}
-          </Typography>
+          <Typography variant="headline">{this.props.recipe.name}</Typography>
           <Typography variant="subheading">
             {this.props.recipe.category}
           </Typography>
           <Typography variant="caption">
             {this.props.recipe.calories} calories
-
           </Typography>
         </CardContent>
 
-        <CardActions style={styles.actions} >
+        <CardActions style={styles.actions}>
           <Divider light />
 
           <IconButton
@@ -83,26 +79,21 @@ class RecipeCard extends React.Component {
         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
           <Divider light />
           <CardContent>
-            <Typography variant="body2">
-              Ingredients:
-            </Typography>
+            <Typography variant="body2">Ingredients:</Typography>
             {this.props.recipe.ingredients.map(ingredient => (
               <Typography variant="body1">
                 {bull} {ingredient}
-              </Typography>))}
+              </Typography>
+            ))}
           </CardContent>
           <Divider light />
           <CardContent>
-            <Typography variant="body2">
-
-              Method:
-            </Typography>
+            <Typography variant="body2">Method:</Typography>
             {this.props.recipe.steps.map(step => (
               <Typography paragraph variant="body1">
                 {step}
-              </Typography>))
-            }
-
+              </Typography>
+            ))}
           </CardContent>
         </Collapse>
       </Card>

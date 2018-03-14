@@ -9,7 +9,7 @@ const styles = {
 
 function RecipeCardList(props) {
   return (
-    <div style={styles} >
+    <div style={styles}>
       {props.recipes.map(recipe => (
         <RecipeCard recipe={recipe} key={recipe.id} />
       ))}
