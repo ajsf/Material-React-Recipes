@@ -1,5 +1,4 @@
 import React from 'react';
-import risotto from '../static/images/risotto.jpg'
 import classNames from 'classnames';
 
 const RecipeDetail = (props) => {
@@ -14,7 +13,7 @@ const RecipeDetail = (props) => {
     );
   }
   return (
-    <div
+    <MuiThemeProvider
       style={props.style}
       className={classNames('p2 bg-white', props.className)}
       >
@@ -22,10 +21,10 @@ const RecipeDetail = (props) => {
       <img
         className="fit"
         src={props.recipe.image} />
-      <div>
+      <MuiThemeProvider>
         <span>{props.recipe.category}</span>
         <span>{props.recipe.calories}</span>
-      </div>
+      </MuiThemeProvider>
       <h3>Ingredients</h3>
       <ul>
         {props.recipe.ingredients.map(ingredient => (
@@ -42,7 +41,7 @@ const RecipeDetail = (props) => {
           </li>
         ))}
       </ol>
-    </div>
+    </MuiThemeProvider>
   );
 }
 export default RecipeDetail;

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "./node_modules/.bin/webpack-dev-server --mode development"
+    "start": "./node_modules/.bin/webpack-dev-server --mode development --host 0.0.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -15,6 +15,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.10",
     "dotenv": "^5.0.1",
+    "eslint": "^4.18.2",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.0.4",
     "postcss": "^6.0.19",
@@ -32,7 +33,8 @@
     "basscss-background-colors": "^2.1.0",
     "basscss-colors": "^2.2.0",
     "classnames": "^2.2.5",
-    "material-ui": "^0.20.0",
+    "material-ui": "^1.0.0-beta.35",
+    "material-ui-icons": "^1.0.0-beta.35",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "whatwg-fetch": "^2.0.3"
